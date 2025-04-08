@@ -1,0 +1,12 @@
+terminal 1: docker restart $(docker ps -aq)
+terminal 2: python3 app.py
+terminal 3: python3 simulation.py
+terminal 4: python3 producer.py
+terminal 5: python3 consumer.py
+terminal 6: docker exec-it kafka bash         -> to enter kafka bash 
+/opt/kafka/bin/kafka-topics.sh --list --bootstrap-server localhost:9092             -> list of topics
+/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic api-log --from-beginning   -> to see the logs in topic
+exit -> to exit the kafka bash
+
+terminal 7: docker exec -it my-postgres psql -U myuser -d mydb  -> to enter postgres bash
+	    SELECT * FROM logs LIMIT 10 -> to display the first 10 logs
